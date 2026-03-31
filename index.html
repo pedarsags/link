@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="PEDARSAGS (Arman MP) — موزیسین، کریتور و آرتیست ایرانی">
+<title>PEDARSAGS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&family=Vazirmatn:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:     #07070F;
+  --surf:   #0E0E1C;
+  --bdr:    rgba(130,100,255,.13);
+  --a1:     #9B59FF;
+  --a2:     #FF3CAC;
+  --gold:   #FFB800;
+  --txt:    #FFFFFF;
+  --dim:    rgba(255,255,255,.42);
+  --r:      16px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+a{text-decoration:none;color:inherit}
+img{display:block}
+body{background:var(--bg);color:var(--txt);font-family:"Outfit","Vazirmatn",sans-serif;overflow-x:hidden;min-height:100vh}
+
+/* noise / grid */
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(rgba(155,89,255,.04) 1px,transparent 1px) 0 0 / 28px 28px}
+
+/* ambient orbs */
+.orb{position:fixed;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0}
+.o1{width:380px;height:380px;background:#3D1B8F;opacity:.45;top:-120px;left:-100px}
+.o2{width:340px;height:340px;background:#8B1060;opacity:.38;bottom:-100px;right:-90px}
+.o3{width:200px;height:200px;background:#1B2E8F;opacity:.2;top:45%;left:50%;transform:translateX(-50%)}
+
+.page{position:relative;z-index:1;max-width:460px;margin:0 auto;padding-bottom:80px}
+
+/* ─ hero ─ */
+.hero{position:relative;width:100%;height:36vw;min-height:150px;max-height:220px;overflow:hidden}
+.hero img{width:100%;height:100%;object-fit:cover;object-position:center 28%;filter:brightness(.42)}
+.hero-grad{position:absolute;inset:0;background:linear-gradient(180deg,transparent 15%,var(--bg) 100%)}
+
+/* ─ profile ─ */
+.profile{position:relative;z-index:10;display:flex;align-items:flex-end;gap:15px;padding:0 18px;margin-top:-50px;margin-bottom:24px}
+.av{width:88px;height:88px;flex-shrink:0;border-radius:18px;overflow:hidden;position:relative;
+  border:2px solid rgba(155,89,255,.6);
+  box-shadow:0 0 0 3px rgba(155,89,255,.18),0 8px 24px rgba(0,0,0,.7);background:var(--surf)}
+.av img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.eq{position:absolute;bottom:0;left:0;right:0;height:19px;display:flex;align-items:flex-end;justify-content:center;gap:3px;padding:3px 6px;background:linear-gradient(transparent,rgba(0,0,0,.88))}
+.eb{width:3px;border-radius:2px;background:linear-gradient(to top,var(--a1),var(--a2));animation:ea 1.2s ease-in-out infinite alternate}
+.eb:nth-child(1){animation-delay:0s}.eb:nth-child(2){animation-delay:-.35s}.eb:nth-child(3){animation-delay:-.2s}.eb:nth-child(4){animation-delay:-.5s}.eb:nth-child(5){animation-delay:-.1s}
+@keyframes ea{from{height:3px}to{height:14px}}
+.pinfo{padding-bottom:6px}
+.nm{font-family:"Outfit",sans-serif;font-size:24px;font-weight:900;letter-spacing:3.5px;text-transform:uppercase;line-height:1;
+  background:linear-gradient(135deg,#FFD580,#FFB800,#FF8C00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.tag{font-size:11px;color:var(--dim);margin-top:5px;letter-spacing:1.5px}
+
+/* ─ content ─ */
+.ct{padding:0 16px}
+.sec{display:flex;align-items:center;gap:10px;margin:26px 0 12px}
+.sl{flex:1;height:1px;background:var(--bdr)}
+.st{font-size:10px;letter-spacing:2.5px;color:var(--dim);text-transform:uppercase;font-weight:700;white-space:nowrap}
+
+/* ─ card ─ */
+.card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--r);overflow:hidden;transition:transform .3s,border-color .3s,box-shadow .3s}
+.card:hover{transform:translateY(-2px);border-color:rgba(155,89,255,.32);box-shadow:0 12px 32px rgba(0,0,0,.55)}
+
+/* ─ spotify ─ */
+.spfy-hero{position:relative;width:100%;height:130px;overflow:hidden;flex-shrink:0}
+.spfy-hero img{width:100%;height:100%;object-fit:cover;object-position:center 35%;filter:brightness(.4) saturate(1.4)}
+.spfy-grad{position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,14,28,.05),rgba(14,14,28,.92))}
+.spfy-meta{position:absolute;bottom:10px;left:13px;right:13px;display:flex;align-items:center;gap:9px}
+.spfy-av{width:40px;height:40px;border-radius:8px;overflow:hidden;border:1px solid rgba(29,185,84,.4);flex-shrink:0}
+.spfy-av img{width:100%;height:100%;object-fit:cover}
+.spfy-nm{font-size:13px;font-weight:700}.spfy-lbl{font-size:10px;color:var(--dim);margin-top:2px}
+.spfy iframe{display:block;width:100%;border:none}
+.spfy-foot{display:flex;align-items:center;justify-content:space-between;padding:10px 13px;border-top:1px solid var(--bdr);background:rgba(0,0,0,.28)}
+.sp-follow{display:flex;align-items:center;gap:6px;background:#1DB954;color:#000;font-size:12px;font-weight:700;padding:7px 15px;border-radius:100px;transition:opacity .2s}
+.sp-follow:hover{opacity:.85}
+.sp-open{font-size:11px;color:var(--dim)}.sp-open a{color:#1DB954;font-weight:700}
+
+/* ─ youtube card ─ */
+.yt-link{display:block;color:var(--txt)}
+.yt-thumb{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:#000}
+.yt-thumb img{width:100%;height:100%;object-fit:cover;filter:brightness(.82);transition:transform .5s,filter .5s}
+.card:hover .yt-thumb img{transform:scale(1.04);filter:brightness(1)}
+.yt-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.72) 0%,transparent 55%);display:flex;align-items:center;justify-content:center}
+.yt-play{width:58px;height:58px;border-radius:50%;background:rgba(255,0,0,.9);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(255,0,0,.5);transition:transform .35s cubic-bezier(.34,1.56,.64,1),box-shadow .35s}
+.card:hover .yt-play{transform:scale(1.14);box-shadow:0 8px 28px rgba(255,0,0,.7)}
+.yt-info{display:flex;align-items:flex-start;gap:11px;padding:13px 15px}
+.yt-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(255,0,0,.11);color:#FF4444;font-size:10px;font-weight:800;letter-spacing:1.5px;padding:3px 9px;border-radius:5px;margin-bottom:7px}
+.yt-title{font-size:14px;font-weight:600;line-height:1.5}
+
+/* ─ platform links — full-width Linktree style ─ */
+.links{display:flex;flex-direction:column;gap:9px}
+.lk{display:flex;align-items:center;gap:14px;padding:13px 16px;direction:ltr;position:relative;overflow:hidden;transition:transform .25s,border-color .25s}
+.lk::before{content:"";position:absolute;top:0;left:0;bottom:0;width:3px;background:var(--pc);opacity:.7;transition:opacity .25s}
+.lk:hover::before{opacity:1}
+.lk::after{content:"";position:absolute;inset:0;background:linear-gradient(to right,var(--pc),transparent);opacity:.05;transition:opacity .25s}
+.lk:hover::after{opacity:.13}
+.lk:hover{border-color:rgba(255,255,255,.2);transform:translateX(3px)}
+.li{width:40px;height:40px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.38);border:1px solid rgba(255,255,255,.07);transition:transform .4s cubic-bezier(.34,1.56,.64,1),background .25s,box-shadow .25s}
+.lk:hover .li{transform:scale(1.1) rotate(-5deg);background:var(--pc);border-color:transparent;box-shadow:0 5px 16px var(--pc)}
+.li svg{width:19px;height:19px;transition:filter .25s}
+.lk:hover .li svg{filter:brightness(0) invert(1)}
+.ln{flex:1}.lnt{font-size:14px;font-weight:700}.lns{font-size:11px;color:var(--dim);margin-top:2px}
+.la{font-size:18px;color:rgba(255,255,255,.18);transition:transform .25s,color .25s}
+.lk:hover .la{transform:translateX(4px);color:var(--pc)}
+
+/* ─ shop ─ */
+.pg{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;padding:12px}
+.pr{display:flex;flex-direction:column;border-radius:12px;overflow:hidden;background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.06);transition:all .3s}
+.pr:hover{border-color:rgba(155,89,255,.4);transform:translateY(-3px);box-shadow:0 10px 22px rgba(0,0,0,.55)}
+.pi{width:100%;aspect-ratio:1;overflow:hidden;background:#0A0A18;position:relative}
+.pi img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.pr:hover .pi img{transform:scale(1.08)}
+.pbdg{position:absolute;top:6px;right:6px;background:var(--a1);color:#fff;font-size:9px;font-weight:900;padding:2px 7px;border-radius:4px}
+.pb2{padding:9px 8px;text-align:center}
+.pt{font-size:11px;font-weight:500;color:rgba(255,255,255,.82);line-height:1.35;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.pp{font-size:13px;font-weight:900;background:linear-gradient(135deg,var(--a1),var(--a2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-top:3px}
+.shop-btn{display:flex;align-items:center;justify-content:center;gap:7px;padding:12px;margin:0 12px 12px;border:1px solid rgba(155,89,255,.3);border-radius:12px;color:var(--a1);font-size:13px;font-weight:700;background:rgba(155,89,255,.07);transition:all .25s}
+.shop-btn:hover{background:rgba(155,89,255,.18);border-color:var(--a1)}
+
+/* ─ loader ─ */
+.ldr{display:flex;align-items:center;justify-content:center;gap:8px;height:88px}
+.dt{width:8px;height:8px;border-radius:50%;animation:pp2 1s ease infinite}
+.dt:nth-child(1){background:var(--a1);animation-delay:0s}
+.dt:nth-child(2){background:var(--a2);animation-delay:.2s}
+.dt:nth-child(3){background:var(--gold);animation-delay:.4s}
+@keyframes pp2{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1.2)}}
+
+.ft{margin-top:56px;text-align:center;font-size:11px;color:rgba(255,255,255,.14);letter-spacing:3px;font-family:"Outfit",sans-serif}
+
+/* ─ reveal ─ */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.rv.on{opacity:1;transform:none}
+
+@media(max-width:370px){
+  .nm{font-size:20px;letter-spacing:2.5px}
+  .pg{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+<div class="orb o1"></div>
+<div class="orb o2"></div>
+<div class="orb o3"></div>
+
+<div class="page">
+
+<!-- HERO — Spotify CDN (no local file needed) -->
+<div class="hero">
+  <img src="https://i.scdn.co/image/ab6761610000e5eb8050d57ff98d55d642f9ba87"
+       alt="PEDARSAGS" fetchpriority="high"
+       onerror="this.parentElement.style.background='linear-gradient(135deg,#1a0a2e,#0a0a0f)'">
+  <div class="hero-grad"></div>
+</div>
+
+<!-- PROFILE -->
+<div class="profile rv">
+  <div class="av">
+    <img src="avatar.jpg"
+         alt="PEDARSAGS"
+         onerror="this.src='https://i.scdn.co/image/ab6761610000e5eb8050d57ff98d55d642f9ba87';this.onerror=null">
+    <div class="eq"><div class="eb"></div><div class="eb"></div><div class="eb"></div><div class="eb"></div><div class="eb"></div></div>
+  </div>
+  <div class="pinfo">
+    <h1 class="nm">PEDARSAGS</h1>
+    <p class="tag">🎵 موزیسین · کریتور · آرتیست</p>
+  </div>
+</div>
+
+<div class="ct">
+
+
+
+<!-- YOUTUBE -->
+<div class="sec rv"><div class="sl"></div><span class="st">آخرین ویدیو</span><div class="sl"></div></div>
+<div class="card rv" id="ytc"><div class="ldr"><div class="dt"></div><div class="dt"></div><div class="dt"></div></div></div>
+
+<!-- PLATFORMS -->
+<div class="sec rv"><div class="sl"></div><span class="st">گوش بده</span><div class="sl"></div></div>
+<div class="links rv">
+
+<a href="https://open.spotify.com/artist/0hlTPBDp6UCR6d2nGwHlXp" target="_blank" rel="noopener" class="card lk" style="--pc:#1DB954">
+  <div class="li"><svg viewBox="0 0 24 24" fill="#1DB954"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.36-.66.48-1.021.24-2.82-1.74-6.36-2.1-10.561-1.14-.418.12-.779-.18-.899-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.479.66.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14C9.6 9.9 15 10.56 18.72 12.84c.361.18.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/></svg></div>
+  <div class="ln"><div class="lnt">Spotify</div><div class="lns">پخش آنلاین</div></div><span class="la">›</span>
+</a>
+
+<a href="YOUR_APPLE_MUSIC_LINK" target="_blank" rel="noopener" class="card lk" style="--pc:#FA233B">
+  <div class="li"><svg viewBox="0 0 24 24" fill="#FA233B"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.54 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg></div>
+  <div class="ln"><div class="lnt">Apple Music</div><div class="lns">iOS & Mac</div></div><span class="la">›</span>
+</a>
+
+<a href="YOUR_YT_MUSIC_LINK" target="_blank" rel="noopener" class="card lk" style="--pc:#FF0000">
+  <div class="li"><svg viewBox="0 0 24 24" fill="#FF0000"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.6 3.6 12 3.6 12 3.6s-7.6-.01-9.4.5A3 3 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.8.5 9.4.5 9.4.5s7.6 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6z"/></svg></div>
+  <div class="ln"><div class="lnt">YouTube Music</div><div class="lns">آنلاین و آفلاین</div></div><span class="la">›</span>
+</a>
+
+<a href="YOUR_AMAZON_LINK" target="_blank" rel="noopener" class="card lk" style="--pc:#25C0FF">
+  <div class="li"><svg viewBox="0 0 24 24" fill="#25C0FF"><path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.533 8.447-1.595l.315-.14c.138-.06.243-.049.313.052.07.1.046.2-.07.3l-.232.14C18.025 21.73 15.053 22.6 12 22.6c-4.207 0-8.2-1.038-11.988-3.113-.166-.103-.196-.221-.094-.354zm6.245-4.76c0-1.01.354-1.862 1.062-2.556.707-.695 1.572-1.042 2.591-1.042h.86c.086 0 .13-.043.13-.13v-.302c0-.604-.153-1.073-.46-1.408-.308-.335-.77-.503-1.387-.503-.486 0-.917.124-1.294.372-.378.248-.617.585-.717 1.011-.065.28-.21.402-.434.367l-2.422-.28c-.237-.044-.355-.178-.355-.403 0-.043.008-.086.022-.13.41-1.335 1.108-2.339 2.096-3.012.988-.673 2.212-1.01 3.671-1.01 1.633 0 2.922.454 3.865 1.36.944.907 1.415 2.156 1.415 3.747v4.92c0 .474.187.842.56 1.103.186.13.28.282.28.454 0 .13-.065.238-.194.323l-1.856 1.26c-.237.149-.454.22-.648.213-.237-.022-.441-.104-.615-.248a8.27 8.27 0 0 1-.53-.464c-.18-.162-.367-.355-.56-.573-.605.605-1.233 1.027-1.882 1.263-.65.238-1.34.356-2.07.356-1.1 0-2-.323-2.704-.97-.703-.646-1.055-1.527-1.055-2.642zm4.344.786c0 .497.11.873.334 1.127.222.254.521.38.898.38.13 0 .26-.01.39-.033.13-.022.258-.06.384-.116.496-.215.886-.626 1.167-1.233.28-.606.42-1.25.42-1.93v-.302c0-.086-.044-.13-.13-.13h-.84c-.692 0-1.233.18-1.62.54-.388.36-.603.888-.603 1.697z"/></svg></div>
+  <div class="ln"><div class="lnt">Amazon Music</div><div class="lns">Prime included</div></div><span class="la">›</span>
+</a>
+
+<a href="YOUR_DEEZER_LINK" target="_blank" rel="noopener" class="card lk" style="--pc:#A238FF">
+  <div class="li"><svg viewBox="0 0 24 24" fill="#A238FF"><path d="M18.81 4.16v3.03H24V4.16h-5.19zm0 8.6H24v-3.03h-5.19v3.03zM18.81 16.18v3.65H24v-3.65h-5.19zM12.2 16.18v3.65h5.19v-3.65H12.2zm0-11.93v3.03h5.19V4.25H12.2zm0 8.51h5.19v-3.03H12.2v3.03zM5.57 16.18v3.65h5.19v-3.65H5.57zm0-3.42h5.19v-3.03H5.57v3.03zM0 16.18v3.65h5.19v-3.65H0z"/></svg></div>
+  <div class="ln"><div class="lnt">Deezer</div><div class="lns">HQ Audio</div></div><span class="la">›</span>
+</a>
+
+<a href="YOUR_SOUNDCLOUD_LINK" target="_blank" rel="noopener" class="card lk" style="--pc:#FF5500">
+  <div class="li"><svg viewBox="0 0 24 24" fill="#FF5500"><path d="M11.56 8.87V17h8.76c.89 0 1.68-.79 1.68-1.68 0-.89-.79-1.68-1.68-1.68-.14 0-.27.02-.4.05-.05-1.74-1.47-3.14-3.22-3.14-.65 0-1.26.19-1.77.52-.26-1.68-1.72-2.96-3.47-2.96-.42 0-.82.07-1.19.19-.41.13-.71.47-.71.87zm-1.44-.12c-.28 0-.53.25-.53.53V17h1.06V9.28c0-.28-.25-.53-.53-.53zm-2.14.4v7.85h1.06V9.15c0-.28-.25-.53-.53-.53s-.53.25-.53.53zm-2.15.6v7.25h1.06V9.75c0-.28-.25-.53-.53-.53s-.53.25-.53.53zm-2.14.6v6.65h1.06v-6.65c0-.28-.25-.53-.53-.53s-.53.25-.53.53zm-2.15 1.4v5.25h1.06v-5.25c0-.28-.25-.53-.53-.53s-.53.25-.53.53z"/></svg></div>
+  <div class="ln"><div class="lnt">SoundCloud</div><div class="lns">رایگان</div></div><span class="la">›</span>
+</a>
+
+<a href="YOUR_TIDAL_LINK" target="_blank" rel="noopener" class="card lk" style="--pc:#00FEBF">
+  <div class="li"><svg viewBox="0 0 24 24" fill="#00FEBF"><path d="M12.015 8.788L8.232 5l-3.784 3.788 3.784 3.788 3.783-3.788zM8.232 20.354l-3.784-3.788L.664 20.354l3.784 3.788 3.784-3.788zM15.795 12.57l-3.783-3.787 3.783-3.788 3.784 3.788-3.784 3.787zM23.364 20.142l-3.784-3.788-3.784 3.788 3.784 3.788 3.784-3.788z"/></svg></div>
+  <div class="ln"><div class="lnt">Tidal</div><div class="lns">Lossless Audio</div></div><span class="la">›</span>
+</a>
+
+<a href="YOUR_PANDORA_LINK" target="_blank" rel="noopener" class="card lk" style="--pc:#3668FF">
+  <div class="li"><svg viewBox="0 0 24 24" fill="#3668FF"><path d="M2.512 0v24h4.745v-5.698h4.084c6.336 0 10.147-3.921 10.147-9.332 0-5.321-3.633-8.97-10.021-8.97H2.512zm4.745 4.398h3.337c3.21 0 5.093 1.94 5.093 4.743 0 2.893-1.631 4.767-4.842 4.767H7.257V4.398z"/></svg></div>
+  <div class="ln"><div class="lnt">Pandora</div><div class="lns">Radio & On Demand</div></div><span class="la">›</span>
+</a>
+
+</div>
+
+<!-- SHOP -->
+<div class="sec rv"><div class="sl"></div><span class="st">فروشگاه</span><div class="sl"></div></div>
+<div class="card rv" id="fwc" style="padding:0"><div class="ldr"><div class="dt"></div><div class="dt"></div><div class="dt"></div></div></div>
+
+<!-- SOCIAL -->
+<div class="sec rv"><div class="sl"></div><span class="st">دنبالم کن</span><div class="sl"></div></div>
+<div class="links rv">
+
+<a href="https://www.youtube.com/@PEDARSAGS" target="_blank" rel="noopener" class="card lk" style="--pc:#FF0000">
+  <div class="li" style="background:rgba(255,0,0,.14)"><svg viewBox="0 0 24 24" fill="#FF0000"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.6 3.6 12 3.6 12 3.6s-7.6-.01-9.4.5A3 3 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.8.5 9.4.5 9.4.5s7.6 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6z"/></svg></div>
+  <div class="ln"><div class="lnt">YouTube</div><div class="lns">@PEDARSAGS · اشتراک</div></div><span class="la">›</span>
+</a>
+
+<a href="https://t.me/pedarsagss" target="_blank" rel="noopener" class="card lk" style="--pc:#2AABEE">
+  <div class="li" style="background:rgba(42,171,238,.14)"><svg viewBox="0 0 24 24" fill="#2AABEE"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></div>
+  <div class="ln"><div class="lnt">Telegram</div><div class="lns">@pedarsagss · اخبار روزانه</div></div><span class="la">›</span>
+</a>
+
+<a href="https://pedarsags-shop.fourthwall.com" target="_blank" rel="noopener" class="card lk" style="--pc:#FFB800">
+  <div class="li" style="background:rgba(255,184,0,.14);font-size:19px">🛍️</div>
+  <div class="ln"><div class="lnt">فروشگاه رسمی</div><div class="lns">پوشاک و محصولات اختصاصی</div></div><span class="la">›</span>
+</a>
+
+</div>
+
+<p class="ft rv">PEDARSAGS ✦ 2026</p>
+</div><!-- /ct -->
+</div><!-- /page -->
+
+<script>
+/* ── CONFIG — 100% public, safe for GitHub ─────────────────────── */
+const C = {
+  YT : "UCuVACjGkYpb5PoU5xXh3syw",
+  FWT: "ptkn_f6245312-ade0-4800-8368-357ad38d20fd",
+  FWU: "https://pedarsags-shop.fourthwall.com",
+};
+
+/* ── Scroll reveal ── */
+const obs = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } });
+}, { threshold: .07, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.rv').forEach((el, i) => {
+  el.style.transitionDelay = (i * .045) + 's';
+  obs.observe(el);
+});
+
+/* ── YouTube: thumbnail click-to-watch card ─────────────────────
+   On GitHub Pages all APIs work fine.
+   Local file:// blocks fetch() by browser CORS policy — expected.
+── */
+const YI = `<svg width="24" height="17" viewBox="0 0 20 14"><path d="M19.58 2.19A2.5 2.5 0 0017.84.45C16.28 0 10 0 10 0S3.72 0 2.16.45A2.5 2.5 0 00.42 2.19 26 26 0 000 7a26 26 0 00.42 4.81 2.5 2.5 0 001.74 1.74C3.72 14 10 14 10 14s6.28 0 7.84-.45a2.5 2.5 0 001.74-1.74A26 26 0 0020 7a26 26 0 00-.42-4.81zM8 10V4l5.2 3z" fill="#FF0000"/></svg>`;
+
+function ytCard(vid, title) {
+  document.getElementById('ytc').innerHTML = `
+  <div>
+    <div class="yt-info" style="padding:12px 15px 8px">${YI}
+      <div><div class="yt-badge">▶ آخرین ویدیو</div><div class="yt-title">${title}</div></div>
+    </div>
+    <div style="position:relative;width:100%;aspect-ratio:16/9;background:#000">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/${vid}?rel=0&modestbranding=1&color=white"
+        style="position:absolute;inset:0;width:100%;height:100%;border:none"
+        allowfullscreen loading="lazy"
+        allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture">
+      </iframe>
+    </div>
+  </div>`;
+}
+
+function ytFallback() {
+  document.getElementById('ytc').innerHTML = `
+  <a class="yt-link" href="https://www.youtube.com/@PEDARSAGS" target="_blank" rel="noopener">
+    <div class="yt-info" style="padding:20px 15px">${YI}
+      <div><div class="yt-badge">YOUTUBE</div><div class="yt-title">کانال PEDARSAGS — همه ویدیوها رو اینجا ببین 🎬</div></div>
+    </div>
+  </a>`;
+}
+
+async function loadYT() {
+  /* 
+   * Fetches YouTube RSS feed via public CORS proxies — fully automatic,
+   * no API key needed.  Works on GitHub Pages (HTTPS).
+   * Blocked by browser on local file:// — shows fallback link there.
+   */
+  const YT_RSS = `https://www.youtube.com/feeds/videos.xml?channel_id=${C.YT}`;
+  const to = ms => new Promise((_, r) => setTimeout(r, ms));
+
+  // Helper: fetch XML through a proxy, parse, return {id, title} or null
+  async function tryProxy(proxyUrl) {
+    const r = await Promise.race([fetch(proxyUrl), to(6000)]);
+    if (!r?.ok) return null;
+    const txt = await r.text();
+    const xml = new DOMParser().parseFromString(txt, 'text/xml');
+    const entry = xml.querySelector('entry');
+    const rawId = entry?.querySelector('id')?.textContent ?? '';
+    // YouTube entry id looks like: yt:video:VIDEO_ID
+    const id = rawId.split(':video:')[1] || rawId.split('/').pop();
+    const title = entry?.querySelector('title')?.textContent ?? '';
+    return id ? { id, title } : null;
+  }
+
+  const proxies = [
+    `https://corsproxy.io/?${encodeURIComponent(YT_RSS)}`,
+    `https://api.allorigins.win/raw?url=${encodeURIComponent(YT_RSS)}`,
+    `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(YT_RSS)}`,
+    `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(YT_RSS)}&count=1`,
+  ];
+
+  for (const proxy of proxies) {
+    try {
+      if (proxy.includes('rss2json')) {
+        // rss2json returns JSON, not XML
+        const r = await Promise.race([fetch(proxy), to(6000)]);
+        if (!r?.ok) continue;
+        const d = await r.json();
+        if (d.status === 'ok' && d.items?.length) {
+          const v = d.items[0];
+          const id = v.link?.split('v=')[1]?.split('&')[0];
+          if (id) return ytCard(id, v.title);
+        }
+        continue;
+      }
+      const result = await tryProxy(proxy);
+      if (result) return ytCard(result.id, result.title);
+    } catch {}
+  }
+  ytFallback();
+}
+
+/* ── Fourthwall shop — up to 9 products ── */
+async function loadFW() {
+  const el = document.getElementById('fwc');
+  try {
+    const r = await fetch(`https://storefront-api.fourthwall.com/v1/collections/all/products?storefront_token=${C.FWT}&size=9`);
+    if (!r.ok) throw 0;
+    const d = await r.json();
+    const ps = (d.results || []).slice(0, 9);
+    if (!ps.length) throw 0;
+    const html = ps.map(p => {
+      const v = p.variants?.find(x => x.unitPrice) || p.variants?.[0];
+      const pr = v?.unitPrice?.value ? '$' + parseFloat(v.unitPrice.value).toFixed(2) : '';
+      const im = p.images?.[0]?.url || '';
+      const nm = p.name || 'محصول';
+      const ul = `${C.FWU}/products/${p.slug || p.id || ''}`;
+      return `<a href="${ul}" target="_blank" rel="noopener" class="pr">
+        <div class="pi">${im ? `<img src="${im}" alt="${nm}" loading="lazy">` : ''}
+          <div class="pbdg">NEW</div>
+        </div>
+        <div class="pb2"><div class="pt">${nm}</div><div class="pp">${pr}</div></div>
+      </a>`;
+    }).join('');
+    el.innerHTML = `<div class="pg">${html}</div>
+      <a href="${C.FWU}" target="_blank" rel="noopener" class="shop-btn">✦ همه محصولات</a>`;
+  } catch {
+    el.innerHTML = `<a href="${C.FWU}" target="_blank" rel="noopener" class="shop-btn" style="margin:0;border:none">🛍️ ورود به فروشگاه</a>`;
+  }
+}
+
+loadYT();
+loadFW();
+</script>
+</body>
+</html>
